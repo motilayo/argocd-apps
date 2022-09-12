@@ -7,10 +7,10 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: vela-system
+    namespace: crossplane-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: crossplane-system
+    path: crossplane
     repoURL: https://github.com/motilayo/argocd-crossplane-kubevela.git
     targetRevision: HEAD

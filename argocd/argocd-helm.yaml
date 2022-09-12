@@ -11,13 +11,13 @@ spec:
   source:
     helm:
       releaseName: argocd
-      # parameters:
-      #  - name: build.enabled
-      #     value: "false"
-      #   - name: deploy.route.tls.enabled
-      #     value: "true"
-      #  - name: image.name
-      #     value: quay.io/ablock/gitops-helm-quarkus
+      parameters:
+      - name: server.extraArgs[0]
+        value: "--insecure"
+      - name: dex.enabled
+        value: "false"
+      - name: crds.keep
+        value: "false"
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 5.4.0
