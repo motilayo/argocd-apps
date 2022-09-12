@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossplane
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: vela-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: crossplane-system
+    repoURL: https://github.com/motilayo/argocd-crossplane-kubevela.git
+    targetRevision: HEAD

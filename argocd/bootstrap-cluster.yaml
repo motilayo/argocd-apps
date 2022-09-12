@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-cd
+  namespace: argocd
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      releaseName: argocd
+      # parameters:
+      #  - name: build.enabled
+      #     value: "false"
+      #   - name: deploy.route.tls.enabled
+      #     value: "true"
+      #  - name: image.name
+      #     value: quay.io/ablock/gitops-helm-quarkus
+    chart: argo-cd
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 5.4.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
