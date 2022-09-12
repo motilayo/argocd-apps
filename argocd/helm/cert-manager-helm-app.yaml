@@ -1,19 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
- name: crossplane-helm
- namespace: crossplane-system
+ name: cert-manager-helm
+ namespace: argocd
 spec:
   destination:
-    namespace: crossplane-system
+    namespace: cert-manager
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: crossplane
-    repoURL: https://charts.crossplane.io/stable
-    targetRevision: 1.9.0
+    chart: cert-manager
+    repoURL: https://charts.jetstack.io
+    targetRevision: v1.9.1
     helm:
-      releaseName: crossplane
+      releaseName: cert-manager
+      parameters:
+        - name: installCRDs
+          value: "true"
   syncPolicy:
     automated:
       prune: true
