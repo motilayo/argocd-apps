@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
- name: crossplane
- namespace: argocd
+ name: crossplane-helm
+ namespace: crossplane-system
 spec:
   destination:
     namespace: crossplane-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: crossplane-system
+    chart: crossplane
     repoURL: https://charts.crossplane.io/stable
     targetRevision: 1.9.0
     helm:
