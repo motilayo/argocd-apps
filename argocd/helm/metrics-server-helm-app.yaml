@@ -14,6 +14,17 @@ spec:
     targetRevision: 3.8.2
     helm:
       releaseName: metrics-server
+      parameters: 
+        - name: defaultArgs[0]
+          value: --cert-dir=/tmp
+        - name: defaultArgs[1]
+          value: --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - name: defaultArgs[2]
+          value: --kubelet-use-node-status-port
+        - name: defaultArgs[3]
+          value: --metric-resolution=15s
+        - name: defaultArgs[4]
+          value: --kubelet-insecure-tls
   syncPolicy:
     automated:
       prune: true
