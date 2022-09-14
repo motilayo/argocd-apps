@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: helm-apps
+  name: helm-app
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
