@@ -1,20 +1,18 @@
 apiVersion: terraform.core.oam.dev/v1beta1
 kind: Provider
 metadata:
-  name: gcp
+  name: aws
   namespace: vela-system
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
   labels:
     config.oam.dev/catalog: velacore-config
     config.oam.dev/type: terraform-provider
-    config.oam.dev/provider: terraform-gcp
+    config.oam.dev/provider: terraform-aws
 spec:
-  provider: gcp
-  region: northamerica-northeast2
+  provider: aws
+  region: ca-central-1
   credentials:
     source: Secret
     secretRef:
       namespace: vela-system
-      name: gcp-credentials
+      name: aws-account-creds
       key: credentials

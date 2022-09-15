@@ -1,8 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: infra-configurations
+  name: crossplane-providers
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -10,7 +12,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: configurations
+    path: crossplane-providers
     repoURL: https://github.com/motilayo/argocd-crossplane-kubevela.git
     targetRevision: HEAD
     directory:

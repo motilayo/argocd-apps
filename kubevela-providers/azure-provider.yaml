@@ -1,20 +1,17 @@
 apiVersion: terraform.core.oam.dev/v1beta1
 kind: Provider
 metadata:
-  name: aws
+  name: azure
   namespace: vela-system
-  annotations:
-    argocd.argoproj.io/sync-wave: "4"
   labels:
     config.oam.dev/catalog: velacore-config
     config.oam.dev/type: terraform-provider
-    config.oam.dev/provider: terraform-aws
+    config.oam.dev/provider: terraform-azure
 spec:
-  provider: aws
-  region: ca-central-1
+  provider: azure
   credentials:
     source: Secret
     secretRef:
       namespace: vela-system
-      name: aws-account-creds
+      name: azure-credentials
       key: credentials

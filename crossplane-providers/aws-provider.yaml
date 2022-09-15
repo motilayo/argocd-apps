@@ -2,11 +2,9 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: gcp
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
+  name: aws
 spec:
-  package: crossplane/provider-gcp:v0.21.0
+  package: crossplane/provider-aws:v0.31.0
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1
