@@ -1,0 +1,19 @@
+apiVersion: storage.azure.crossplane.io/v1alpha3
+kind: Account
+metadata:
+  name: crossplaneacc
+spec:
+  resourceGroupName: crossplane-rg
+  storageAccountSpec:
+    kind: Storage
+    location: Canada Central
+    sku:
+      name: Standard_LRS
+      tier: Standard
+    tags:
+      application: crossplane
+  providerConfigRef:
+    name: azure
+  writeConnectionSecretToRef:
+    namespace: crossplane-system
+    name: crossplane-acc

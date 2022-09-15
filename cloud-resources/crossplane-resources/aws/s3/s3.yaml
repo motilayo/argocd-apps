@@ -19,5 +19,5 @@ spec:
             sseAlgorithm: AES256
     versioningConfiguration:
       status: Enabled
-  # providerConfigRef:
-  #   name: example
+  providerConfigRef:
+    name: aws

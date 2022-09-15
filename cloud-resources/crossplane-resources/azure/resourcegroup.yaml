@@ -1,7 +1,7 @@
 apiVersion: azure.crossplane.io/v1alpha3
 kind: ResourceGroup
 metadata:
- name: rg-crossplane
+ name: crossplane-rg
 spec:
   location: canadacentral
   providerConfigRef: 

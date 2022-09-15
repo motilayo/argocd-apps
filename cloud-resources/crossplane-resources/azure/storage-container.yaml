@@ -1,0 +1,10 @@
+apiVersion: storage.azure.crossplane.io/v1alpha3
+kind: Container
+metadata:
+  name: crossplane-container
+spec:
+  writeConnectionSecretToRef:
+    name: crossplane-container
+    namespace: crossplane-system
+  providerConfigRef:
+    name: crossplaneacc
