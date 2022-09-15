@@ -16,7 +16,7 @@ kind: ProviderConfig
 metadata:
   name: aws-tf-provider-config
   annotations:
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   credentials:
   - filename: aws-creds.ini
