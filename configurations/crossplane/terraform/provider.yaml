@@ -3,6 +3,8 @@ apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
   name: terraform
+  annotations:
+    argocd.argoproj.io/sync-options: Validate=false
 spec:
   package: crossplane/provider-terraform:v0.3.0
   packagePullPolicy: IfNotPresent
