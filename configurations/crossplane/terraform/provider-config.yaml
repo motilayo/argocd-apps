@@ -1,0 +1,60 @@
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: crossplane-terraform-provider
+spec:
+  package: crossplane/provider-terraform:v0.3.0
+  packagePullPolicy: IfNotPresent
+  revisionActivationPolicy: Automatic
+  revisionHistoryLimit: 1
+---
+apiVersion: tf.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: aws-tf-provider-config
+spec:
+  credentials:
+  - filename: aws-creds.ini
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: aws-credentials
+      key: credentials
+  configuration: |
+      terraform {
+        backend "kubernetes" {
+          secret_suffix     = "providerconfig-aws"
+          namespace         = "crossplane-system"
+          in_cluster_config = true
+        }
+      }
+      provider "aws" {
+        shared_credentials_file = "aws-creds.ini"
+        region = "ca-central-1"
+      }
+---
+apiVersion: tf.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: gcp-tf-provider-config
+spec:
+  credentials:
+  - filename: gcp-credentials.json
+    source: Secret
+    secretRef:
+      namespace: crossplane-system
+      name: gcp-credentials
+      key: credentials
+  configuration: |
+      provider "google" {
+        credentials = "gcp-credentials.json"
+        project     = "oam-proj"
+      }
+      terraform {
+        backend "kubernetes" {
+          secret_suffix     = "providerconfig-gcp"
+          namespace         = "crossplane-system"
+          in_cluster_config = true
+        }
+      }
