@@ -4,7 +4,7 @@ kind: Provider
 metadata:
   name: aws-provider
 spec:
-  package: crossplane/provider-aws:alpha
+  package: crossplane/provider-aws:master
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1

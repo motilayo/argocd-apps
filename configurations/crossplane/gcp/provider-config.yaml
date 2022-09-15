@@ -4,7 +4,7 @@ kind: Provider
 metadata:
   name: gcp-provider
 spec:
-  package: crossplane/provider-gcp:alpha
+  package: crossplane/provider-gcp:master
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1
