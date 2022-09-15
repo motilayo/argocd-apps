@@ -4,7 +4,7 @@ kind: Provider
 metadata:
   name: gcp
   annotations:
-    argocd.argoproj.io/sync-options: Validate=false
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   package: crossplane/provider-gcp:v0.21.0
   packagePullPolicy: IfNotPresent
@@ -16,7 +16,7 @@ kind: ProviderConfig
 metadata:
   name: gcp
   annotations:
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   projectID: oam-proj
   credentials:

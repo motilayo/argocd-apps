@@ -2,6 +2,8 @@ apiVersion: pkg.crossplane.io/v1alpha1
 kind: ControllerConfig
 metadata:
   name: terraform-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
   labels:
     app: crossplane-provider-terraform
 spec:
