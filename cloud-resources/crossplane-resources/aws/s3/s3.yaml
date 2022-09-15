@@ -1,15 +1,23 @@
-apiVersion: s3.aws.jet.crossplane.io/v1alpha2
+apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
-  name: sample-bucket-agboola
-  ns: 
+  name: crossplane-agboola-s3
   annotations:
     # This will be the actual bucket name. It must be globally unique, so you
     # probably want to change it before trying to apply this example.
-    crossplane.io/external-name: sample-bucket-agboola
+    crossplane.io/external-name: crossplane-agboola-s3
 spec:
+  deletionPolicy: Delete
   forProvider:
-    region: ca-central-1
     acl: private
-    tags:
-      Name: sample-bucket-agboola
+    locationConstraint: ca-central-1
+    paymentConfiguration:
+      payer: BucketOwner
+    serverSideEncryptionConfiguration:
+      rules:
+        - applyServerSideEncryptionByDefault:
+            sseAlgorithm: AES256
+    versioningConfiguration:
+      status: Enabled
+  # providerConfigRef:
+  #   name: example

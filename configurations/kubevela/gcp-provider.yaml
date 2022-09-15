@@ -1,7 +1,12 @@
 apiVersion: terraform.core.oam.dev/v1beta1
 kind: Provider
 metadata:
-  name: default
+  name: gcp
+  namespace: vela-system
+  labels:
+    config.oam.dev/catalog: velacore-config
+    config.oam.dev/type: terraform-provider
+    config.oam.dev/provider: terraform-gcp
 spec:
   provider: gcp
   region: northamerica-northeast2

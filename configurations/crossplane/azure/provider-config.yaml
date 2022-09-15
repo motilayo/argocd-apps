@@ -2,9 +2,9 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: azure-provider
+  name: azure
 spec:
-  package: crossplane/provider-azure:master
+  package: crossplane/provider-azure:v0.19.0
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1
