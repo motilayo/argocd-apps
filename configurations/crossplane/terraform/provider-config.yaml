@@ -3,6 +3,8 @@ apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
   name: terraform
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   package: crossplane/provider-terraform:v0.3.0
   packagePullPolicy: IfNotPresent
@@ -13,6 +15,8 @@ apiVersion: tf.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
   name: aws-tf-provider-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   credentials:
   - filename: aws-creds.ini
@@ -38,6 +42,8 @@ apiVersion: tf.crossplane.io/v1alpha1
 kind: ProviderConfig
 metadata:
   name: gcp-tf-provider-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   credentials:
   - filename: gcp-credentials.json

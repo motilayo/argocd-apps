@@ -3,6 +3,8 @@ apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
   name: gcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   package: crossplane/provider-gcp:v0.21.0
   packagePullPolicy: IfNotPresent
@@ -13,6 +15,8 @@ apiVersion: gcp.crossplane.io/v1beta1
 kind: ProviderConfig
 metadata:
   name: gcp
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   projectID: oam-proj
   credentials:
