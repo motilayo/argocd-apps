@@ -2,7 +2,7 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-gcp
+  name: gcp-provider
 spec:
   package: crossplane/provider-gcp:alpha
   packagePullPolicy: IfNotPresent
@@ -12,7 +12,7 @@ spec:
 apiVersion: gcp.crossplane.io/v1beta1
 kind: ProviderConfig
 metadata:
-  name: default
+  name: gcp
 spec:
   projectID: oam-proj
   credentials:

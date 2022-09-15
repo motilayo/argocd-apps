@@ -2,7 +2,7 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-azure
+  name: azure-provider
 spec:
   package: crossplane/provider-azure:alpha
   packagePullPolicy: IfNotPresent

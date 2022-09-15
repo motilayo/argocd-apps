@@ -2,7 +2,7 @@
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: provider-aws
+  name: aws-provider
 spec:
   package: crossplane/provider-aws:alpha
   packagePullPolicy: IfNotPresent
