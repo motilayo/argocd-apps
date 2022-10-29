@@ -1,31 +1,31 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kubevela-tf-helm
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
-spec:
-  destination:
-    namespace: vela-system
-    server: https://kubernetes.default.svc
-  project: default
-  source:
-    chart: terraform-controller
-    repoURL: https://charts.kubevela.net/addons
-    targetRevision: 0.7.7
-    helm:
-      releaseName: terraform-controller
-      parameters:
-        - name: image.repository
-          value: "jm98/terraform-controller"
-        - name: image.tag
-          value: "0.7.7"
-        - name: terraformImage
-          value: "jm98/docker-terraform:1.1.3"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kubevela-tf-helm
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "2"
+# spec:
+#   destination:
+#     namespace: vela-system
+#     server: https://kubernetes.default.svc
+#   project: default
+#   source:
+#     chart: terraform-controller
+#     repoURL: https://charts.kubevela.net/addons
+#     targetRevision: 0.7.7
+#     helm:
+#       releaseName: terraform-controller
+#       parameters:
+#         - name: image.repository
+#           value: "jm98/terraform-controller"
+#         - name: image.tag
+#           value: "0.7.7"
+#         - name: terraformImage
+#           value: "jm98/docker-terraform:1.1.3"
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#     - CreateNamespace=true

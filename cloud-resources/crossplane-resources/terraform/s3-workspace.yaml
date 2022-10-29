@@ -1,0 +1,29 @@
+apiVersion: tf.crossplane.io/v1alpha1
+kind: Workspace
+metadata:
+  name: s3-workspace
+  annotations:
+    crossplane.io/external-name: s3-workspace
+spec:
+  forProvider:
+    source: Inline
+    module: |
+      source = "terraform-aws-modules/s3-bucket/aws"
+
+      bucket = "super-s3-tf"
+      acl    = "private"
+
+      versioning = {
+        enabled = true
+      }
+    # module: git::https://github.com/terraform-aws-modules/terraform-aws-s3-bucket.git//modules
+    # vars:
+    # - key: bucket
+    #   value: super-s3-tf
+    # - key: acl
+    #   value: private
+  providerConfigRef:
+    name: aws-tf-provider-config
+  writeConnectionSecretToRef:
+    namespace: default
+    name: s3-workspace
