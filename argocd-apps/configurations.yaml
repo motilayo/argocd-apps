@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     path: configurations
-    repoURL: https://github.com/motilayo/argocd-crossplane-kubevela.git
+    repoURL: https://github.com/motilayo/argocd-apps.git
     targetRevision: HEAD
     directory:
       recurse: true
