@@ -24,7 +24,7 @@ spec:
         value: "60"
     chart: argo-cd
     repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 5.4.0
+    targetRevision: 5.29.1
   syncPolicy:
     automated:
       prune: true
