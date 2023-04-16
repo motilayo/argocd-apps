@@ -4,7 +4,7 @@ kind: Provider
 metadata:
   name: azure
 spec:
-  package: crossplane/provider-azure:v0.19.0
+  package: crossplane/provider-azure:v0.20.0
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1
