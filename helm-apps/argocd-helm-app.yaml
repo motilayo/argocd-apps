@@ -12,10 +12,12 @@ spec:
   project: default
   source:
     helm:
-      releaseName: argo
+      releaseName: argocd
       parameters:
-      - name: server.extraArgs[0]
-        value: "--insecure"
+      - name: nameOverride
+        value: argocd
+      - name: configs.params.server.insecure
+        value: "true"
       - name: dex.enabled
         value: "false"
       - name: crds.keep

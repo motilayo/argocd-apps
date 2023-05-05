@@ -1,1 +1,3 @@
-# argocd-crossplane-kubevela
+# argocd-apps
+
+For bootstrapping k8s clusters

@@ -1,13 +1,12 @@
----
-apiVersion: gcp.crossplane.io/v1beta1
-kind: ProviderConfig
-metadata:
-  name: gcp
-spec:
-  projectID: oam-proj
-  credentials:
-    source: Secret
-    secretRef:
-      namespace: crossplane-system
-      name: gcp-credentials
-      key: credentials
+# apiVersion: gcp.crossplane.io/v1beta1
+# kind: ProviderConfig
+# metadata:
+#   name: gcp
+# spec:
+#   projectID: oam-proj
+#   credentials:
+#     source: Secret
+#     secretRef:
+#       namespace: crossplane-system
+#       name: gcp-credentials
+#       key: credentials

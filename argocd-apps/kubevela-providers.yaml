@@ -13,7 +13,7 @@
 #   project: default
 #   source:
 #     path: kubevela-providers
-#     repoURL: https://github.com/motilayo/argocd-crossplane-kubevela.git
+#     repoURL: https://github.com/motilayo/argocd-apps.git
 #     targetRevision: HEAD
 #     directory:
 #       recurse: true
