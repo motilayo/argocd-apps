@@ -1,27 +1,27 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: kubevela-helm
-#   namespace: argocd
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "1"
-# spec:
-#   destination:
-#     namespace: vela-system
-#     server: https://kubernetes.default.svc
-#   project: default
-#   source:
-#     chart: vela-core
-#     repoURL: https://charts.kubevela.net/core
-#     targetRevision: 1.5.3
-#     helm:
-#       releaseName: kubevela
-#       parameters:
-#         - name: admissionWebhooks.certManager.enabled
-#           value: "true"
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       selfHeal: true
-#     syncOptions:
-#     - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevela-helm
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  destination:
+    namespace: vela-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: vela-core
+    repoURL: https://charts.kubevela.net/core
+    targetRevision: 1.8.2
+    helm:
+      releaseName: kubevela
+      parameters:
+        - name: admissionWebhooks.certManager.enabled
+          value: "true"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
