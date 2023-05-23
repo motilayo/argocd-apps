@@ -1,24 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-helm
-  namespace: argocd
+  name: metallb-helm
+  namespace: 
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
-    namespace: cert-manager
+    namespace: metallb-system
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: cert-manager
-    repoURL: https://charts.jetstack.io
-    targetRevision: v1.12.0
+    chart: metallb
+    repoURL: https://metallb.github.io/metallb
+    targetRevision: 0.13.9
     helm:
-      releaseName: cert-manager
-      parameters:
-        - name: installCRDs
-          value: "true"
+      releaseName: metallb
   syncPolicy:
     automated:
       prune: true

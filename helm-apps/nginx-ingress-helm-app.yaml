@@ -1,24 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-helm
-  namespace: argocd
+  name: ingress-nginx-helm
+  namespace: 
   annotations:
     argocd.argoproj.io/sync-wave: "0"
 spec:
   destination:
-    namespace: cert-manager
+    namespace: ingress-nginx
     server: https://kubernetes.default.svc
   project: default
   source:
-    chart: cert-manager
-    repoURL: https://charts.jetstack.io
-    targetRevision: v1.12.0
+    chart: ingress-nginx
+    repoURL: https://kubernetes.github.io/ingress-nginx
+    targetRevision: 4.6.1
     helm:
-      releaseName: cert-manager
-      parameters:
-        - name: installCRDs
-          value: "true"
+      releaseName: ingress-nginx
   syncPolicy:
     automated:
       prune: true
