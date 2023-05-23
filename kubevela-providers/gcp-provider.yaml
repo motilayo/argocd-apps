@@ -1,4 +1,4 @@
-apiVersion: terraform.core.oam.dev/v1beta1
+apiVersion: terraform.core.oam.dev/v1
 kind: Provider
 metadata:
   name: gcp
@@ -11,8 +11,4 @@ spec:
   provider: gcp
   region: northamerica-northeast2
   credentials:
-    source: Secret
-    secretRef:
-      namespace: vela-system
-      name: gcp-credentials
-      key: credentials
+    source: 
