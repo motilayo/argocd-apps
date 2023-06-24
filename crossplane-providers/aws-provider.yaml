@@ -1,10 +1,9 @@
----
 apiVersion: pkg.crossplane.io/v1
 kind: Provider
 metadata:
-  name: aws
+  name: provider-family-aws
 spec:
-  package: crossplane/provider-aws:v0.38.0
+  package: xpkg.upbound.io/upbound/provider-family-aws:v0.36.0
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1
