@@ -12,7 +12,7 @@ spec:
   project: default
   sources:
     - chart: vela-core
-      repoURL: https://charts.kubevela.net/core
+      repoURL: https://kubevela.github.io/charts
       targetRevision: 1.9.1
       helm:
         releaseName: kubevela
@@ -20,7 +20,7 @@ spec:
           - name: admissionWebhooks.certManager.enabled
             value: "true"
     - chart: terraform-controller
-      repoURL: https://charts.kubevela.net/addons
+      repoURL: https://kubevela.github.io/charts
       targetRevision: 0.7.11
       helm:
         releaseName: terraform-controller
@@ -35,4 +35,4 @@ spec:
       limit: -1
     syncOptions:
     - CreateNamespace=true
-    - SkipDryRunOnMissingResource=true
+    # - SkipDryRunOnMissingResource=true
