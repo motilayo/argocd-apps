@@ -13,6 +13,8 @@ spec:
     path: helm-apps
     repoURL: https://github.com/motilayo/argocd-apps.git
     targetRevision: main
+    directory:
+      recurse: false
   syncPolicy:
     automated:
       prune: true

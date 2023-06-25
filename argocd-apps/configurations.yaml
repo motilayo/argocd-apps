@@ -16,7 +16,7 @@ spec:
     repoURL: https://github.com/motilayo/argocd-apps.git
     targetRevision: main
     directory:
-      recurse: true
+      recurse: false
   syncPolicy:
     automated:
       prune: true
