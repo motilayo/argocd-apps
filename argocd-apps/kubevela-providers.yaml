@@ -14,7 +14,7 @@
 #   source:
 #     path: kubevela-providers
 #     repoURL: https://github.com/motilayo/argocd-apps.git
-#     targetRevision: HEAD
+#     targetRevision: main
 #     directory:
 #       recurse: true
 #   syncPolicy:
