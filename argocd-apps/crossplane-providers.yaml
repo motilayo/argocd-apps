@@ -3,8 +3,8 @@ kind: Application
 metadata:
   name: crossplane-providers
   namespace: argocd
-  # annotations:
-  #   argocd.argoproj.io/sync-wave: "3"
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,8 +15,6 @@ spec:
     path: crossplane-providers
     repoURL: https://github.com/motilayo/argocd-apps.git
     targetRevision: main
-    directory:
-      recurse: false
   syncPolicy:
     automated:
       prune: true
