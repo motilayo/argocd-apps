@@ -20,7 +20,7 @@ spec:
         - name: kubeProxyReplacement
           value: strict
         - name: k8sServicePort
-          value: 6443
+          value: "6443"
   syncPolicy:
     automated:
       prune: true
