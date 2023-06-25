@@ -17,6 +17,8 @@ spec:
       helm:
         releaseName: kubevela
         parameters:
+          - name: image.repository
+            value: jm98/vela-core
           - name: admissionWebhooks.certManager.enabled
             value: "true"
     - chart: terraform-controller
@@ -25,6 +27,8 @@ spec:
       helm:
         releaseName: terraform-controller
         parameters:
+          - name: image.repository
+            value: "jm98/terraform-controller"
           - name: terraformImage
             value: "jm98/docker-terraform:latest"
   syncPolicy:
@@ -35,4 +39,3 @@ spec:
       limit: -1
     syncOptions:
     - CreateNamespace=true
-    # - SkipDryRunOnMissingResource=true
