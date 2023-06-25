@@ -1,42 +1,42 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kubevela-helm
-  namespace: argocd
-  # annotations:
-  #   argocd.argoproj.io/sync-wave: "1"
-spec:
-  destination:
-    namespace: vela-system
-    server: https://kubernetes.default.svc
-  project: default
-  sources:
-    - chart: vela-core
-      repoURL: https://charts.kubevela.net/core
-      targetRevision: 1.8.2
-      helm:
-        releaseName: kubevela
-        parameters:
-          - name: admissionWebhooks.certManager.enabled
-            value: "true"
-    - chart: terraform-controller
-      repoURL: https://charts.kubevela.net/addons
-      targetRevision: 0.7.10
-      helm:
-        releaseName: terraform-controller
-        parameters:
-          - name: image.repository
-            value: "jm98/terraform-controller"
-          - name: image.tag
-            value: "latest"
-          - name: terraformImage
-            value: "jm98/docker-terraform:latest"
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    retry:
-      limit: -1
-    syncOptions:
-    - CreateNamespace=true
-    - SkipDryRunOnMissingResource=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kubevela-helm
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "1"
+# spec:
+#   destination:
+#     namespace: vela-system
+#     server: https://kubernetes.default.svc
+#   project: default
+#   sources:
+#     - chart: vela-core
+#       repoURL: https://charts.kubevela.net/core
+#       targetRevision: 1.8.2
+#       helm:
+#         releaseName: kubevela
+#         parameters:
+#           - name: admissionWebhooks.certManager.enabled
+#             value: "true"
+#     - chart: terraform-controller
+#       repoURL: https://charts.kubevela.net/addons
+#       targetRevision: 0.7.10
+#       helm:
+#         releaseName: terraform-controller
+#         parameters:
+#           - name: image.repository
+#             value: "jm98/terraform-controller"
+#           - name: image.tag
+#             value: "latest"
+#           - name: terraformImage
+#             value: "jm98/docker-terraform:latest"
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     retry:
+#       limit: -1
+#     syncOptions:
+#     - CreateNamespace=true
+#     - SkipDryRunOnMissingResource=true
