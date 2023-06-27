@@ -19,6 +19,8 @@ spec:
       parameters:
         - name: installCRDs
           value: "true"
+        - name: "extraArgs"
+          value: --feature-gates=ExperimentalGatewayAPISupport=true
   syncPolicy:
     automated:
       prune: true
